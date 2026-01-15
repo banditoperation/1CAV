@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1st Cavalry Division | America's First Team</title>
-    <!-- FAVICON -->
     <link rel="icon" href="https://static.wixstatic.com/media/757a36_674575e15b62496993de4ea4d3ec77dc~mv2.png" type="image/png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- GLOBAL VARIABLES --- */
         :root {
             --bg-dark: #050505;
             --bg-charcoal: #0F0F0F;
@@ -34,6 +32,12 @@
             font-family: var(--font-main);
             overflow-x: hidden;
             line-height: 1.6;
+            animation: fadeIn 0.8s ease-out; /* Site-wide Fade In */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -60,7 +64,7 @@
         }
 
         .logo-img {
-            height: 45px;
+            height: 40px;
             width: auto;
             filter: drop-shadow(0 0 5px rgba(255,214,0,0.2));
         }
@@ -224,12 +228,10 @@
         
         footer span { color: var(--accent-yellow); }
 
-        /* RESPONSIVE */
         @media (max-width: 768px) {
             .navbar { flex-direction: column; gap: 15px; }
             .hero h1 { font-size: 3rem; }
             .hero-bg { width: 80%; }
-            .logo-img { height: 35px; }
         }
     </style>
 </head>
@@ -244,6 +246,7 @@
         <div class="nav-links">
             <a href="index.html" class="active">Home</a>
             <a href="about.html">About & Units</a>
+            <a href="propaganda.html">Propaganda</a>
         </div>
     </nav>
 
@@ -263,8 +266,6 @@
 
     <!-- BRIGADE CARDS -->
     <section class="brigade-grid">
-        
-        <!-- Ironhorse -->
         <div class="card">
             <div>
                 <h4>Ironhorse Brigade</h4>
@@ -273,7 +274,6 @@
             <a href="about.html#ironhorse" class="card-link">View Details &rarr;</a>
         </div>
 
-        <!-- Greywolf -->
         <div class="card">
             <div>
                 <h4>Greywolf Brigade</h4>
@@ -282,7 +282,6 @@
             <a href="about.html#greywolf" class="card-link">View Details &rarr;</a>
         </div>
 
-        <!-- Spearhead -->
         <div class="card">
             <div>
                 <h4>Spearhead Brigade</h4>
@@ -291,7 +290,6 @@
             <a href="about.html#spearhead" class="card-link">View Details &rarr;</a>
         </div>
 
-        <!-- 194th Armored -->
         <div class="card">
             <div>
                 <h4>194th Armored Brigade</h4>
@@ -299,10 +297,8 @@
             </div>
             <a href="about.html#194th" class="card-link">View Details &rarr;</a>
         </div>
-
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <p>2026 1st Cavalry Division. All Rights Reserved.</p>
         <p style="margin-top: 10px;">Designed for Zanance's USAR. Created by <span>BanditOperation</span></p>
