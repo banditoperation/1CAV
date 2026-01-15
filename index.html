@@ -3,39 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Test</title>
+    <title>1st Cavalry Division | The First Team</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
     <style>
+        /* CORE VARIABLES */
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-charcoal: #141414;
+            --accent-yellow: #FFD600;
+            --accent-glow: rgba(255, 214, 0, 0.4);
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at top right, #1f1f1f 0%, var(--bg-dark) 60%);
+            color: var(--text-white);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* NAVIGATION - GLASSMORPHISM */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--text-white);
+        }
+
+        .logo span {
+            color: var(--accent-yellow);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-gray);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-white);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-yellow);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             text-align: center;
+            padding: 0 20px;
+            position: relative;
         }
-        h1 {
-            color: #333;
+
+        /* Abstract decorative circle */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 214, 0, 0.03) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
         }
-        p {
-            color: #666;
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--accent-yellow);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .cta-btn {
+            padding: 18px 45px;
+            background-color: var(--accent-yellow);
+            color: #000;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            box-shadow: 0 0 20px var(--accent-glow);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-btn:hover {
+            background-color: #fff;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* INFO GRID SECTION */
+        .info-section {
+            padding: 100px 10%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+            border-left: 4px solid var(--accent-yellow);
+            padding-left: 20px;
+        }
+
+        .section-header h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-top: 10px;
+            max-width: 600px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARDS - GLASSMORPHISM */
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 214, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.03);
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            transition: 0.4s;
+        }
+
+        .card:hover .card-number {
+            color: rgba(255, 214, 0, 0.1);
+            transform: scale(1.1);
+        }
+
+        .card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 25px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-yellow);
+            letter-spacing: 1px;
+        }
+
+        .card-link:hover {
+            color: #fff;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 50px;
+        }
+
+        footer span {
+            color: var(--accent-yellow);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero h2 {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>It works! 🎉</h1>
-        <p>My GitHub Pages site is officially live.</p>
-        <p>Honestly, I'm just testing things out right now.</p>
-    </div>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="logo">1ST <span>CAV</span></div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">Mission</a></li>
+            <li><a href="#roster">Roster</a></li>
+            <li><a href="#discord">Comms</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <h2>Combined Arms Division</h2>
+        <h1>The First Team</h1>
+        <button class="cta-btn" onclick="window.location.href='#enlist'">Enlist Now</button>
+    </header>
+
+    <!-- INFO GRID -->
+    <section class="info-section" id="about">
+        <div class="section-header">
+            <h3>Structure & Command</h3>
+            <p>We provide rapid deployment capabilities and overwhelming firepower through integrated air and ground assault tactics.</p>
+        </div>
+
+        <div class="grid-container">
+            <!-- Card 1 -->
+            <div class="card">
+                <span class="card-number">01</span>
+                <h4>Armored Recon</h4>
+                <p>Spearheading the assault. Our armored units provide the heavy impact required to break enemy lines and secure strategic objectives in any terrain.</p>
+                <a href="#" class="card-link">View Details &rarr;</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <span class="card-number">02</span>
+                <h4>Air Cavalry</h4>
+                <p>Death from above. Utilizing rotary-wing assets to deliver troops and close air support, ensuring total dominance of the battlespace.</p>
+                <a href="#" class="card-link">View Details &rarr;</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <span class="card-number">03</span>
+                <h4>Tactical Ops</h4>
+                <p>Strategy and execution. The command element coordinates movements, intelligence, and logistics to maintain operational efficiency.</p>
+                <a href="#" class="card-link">View Details &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 1st Cavalry Division. All Rights Reserved.<br>
+        Design for <span>Zanance USAR</span>.</p>
+    </footer>
 
 </body>
 </html>
