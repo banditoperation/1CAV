@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1st Cavalry Division | Home</title>
+    <title>1st Cavalry Division | America's First Team</title>
+    <!-- FAVICON -->
+    <link rel="icon" href="https://static.wixstatic.com/media/757a36_674575e15b62496993de4ea4d3ec77dc~mv2.png" type="image/png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -14,7 +17,6 @@
             --bg-dark: #050505;
             --bg-charcoal: #0F0F0F;
             --accent-yellow: #FFD600;
-            --accent-dim: #b39600;
             --text-white: #ffffff;
             --text-gray: #a1a1a1;
             --glass-bg: rgba(255, 255, 255, 0.03);
@@ -22,7 +24,6 @@
             --font-main: 'Montserrat', sans-serif;
         }
 
-        /* --- RESET & BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         
@@ -36,14 +37,13 @@
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
 
         /* --- NAVIGATION --- */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -53,8 +53,25 @@
             z-index: 1000;
         }
 
-        .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
-        .logo span { color: var(--accent-yellow); }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            filter: drop-shadow(0 0 5px rgba(255,214,0,0.2));
+        }
+
+        .logo-text { 
+            font-weight: 800; 
+            font-size: 1.1rem; 
+            letter-spacing: 1px; 
+            text-transform: uppercase; 
+            color: #fff;
+        }
 
         .nav-links { display: flex; gap: 30px; }
         .nav-links a { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: var(--text-gray); }
@@ -73,7 +90,6 @@
             overflow: hidden;
         }
 
-        /* Background Logo */
         .hero-bg {
             position: absolute;
             top: 50%;
@@ -210,8 +226,10 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
+            .navbar { flex-direction: column; gap: 15px; }
             .hero h1 { font-size: 3rem; }
             .hero-bg { width: 80%; }
+            .logo-img { height: 35px; }
         }
     </style>
 </head>
@@ -219,7 +237,10 @@
 
     <!-- NAV -->
     <nav class="navbar">
-        <div class="logo">1st <span>Cavalry</span> Division</div>
+        <div class="logo-container">
+            <img src="https://static.wixstatic.com/media/757a36_674575e15b62496993de4ea4d3ec77dc~mv2.png" alt="1CD Logo" class="logo-img">
+            <div class="logo-text">1st Cavalry Division</div>
+        </div>
         <div class="nav-links">
             <a href="index.html" class="active">Home</a>
             <a href="about.html">About & Units</a>
