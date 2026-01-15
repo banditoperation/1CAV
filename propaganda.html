@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1st Cavalry Division | Propaganda</title>
+    <!-- FAVICON -->
     <link rel="icon" href="https://static.wixstatic.com/media/757a36_674575e15b62496993de4ea4d3ec77dc~mv2.png" type="image/png">
 
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
+        /* --- GLOBAL VARIABLES --- */
         :root {
             --bg-dark: #050505;
             --bg-charcoal: #0F0F0F;
@@ -22,6 +25,7 @@
             --font-main: 'Montserrat', sans-serif;
         }
 
+        /* --- RESET & ANIMATIONS --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
@@ -32,7 +36,7 @@
             font-family: var(--font-main);
             overflow-x: hidden;
             line-height: 1.6;
-            animation: fadeIn 0.8s ease-out; /* Site-wide Fade In */
+            animation: fadeIn 0.8s ease-out; /* Smooth Fade In */
         }
 
         @keyframes fadeIn {
@@ -113,7 +117,7 @@
             font-weight: 600;
         }
 
-        /* --- GALLERY GRID --- */
+        /* --- SECTION TITLES --- */
         .section-title {
             font-size: 1.5rem;
             text-transform: uppercase;
@@ -121,8 +125,10 @@
             margin-bottom: 30px;
             border-left: 4px solid var(--accent-yellow);
             padding-left: 15px;
+            color: #fff;
         }
 
+        /* --- GALLERY GRID (IMAGES) --- */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -132,7 +138,7 @@
 
         .gallery-item {
             position: relative;
-            background: var(--bg-charcoal);
+            background: #111; /* Fallback color */
             border: 1px solid var(--glass-border);
             border-radius: 4px;
             overflow: hidden;
@@ -143,9 +149,10 @@
         .gallery-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Ensures image fills box without distortion */
             transition: transform 0.4s ease;
             opacity: 0.85;
+            display: block;
         }
 
         /* Hover Effects */
@@ -202,6 +209,7 @@
         
         footer span { color: var(--accent-yellow); }
 
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .propaganda-header h1 { font-size: 2.5rem; }
             .gallery-grid, .video-grid { grid-template-columns: 1fr; }
@@ -235,36 +243,47 @@
         <!-- IMAGE GALLERY -->
         <div class="section-title">Field Photography</div>
         <div class="gallery-grid">
+            
             <div class="gallery-item">
-                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1383983936740397067/nighthawks_darkness_is_no_defense.png" alt="Nighthawks Darkness">
+                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1383983936740397067/nighthawks_darkness_is_no_defense.png?ex=696a3f3b&is=6968edbb&hm=ea933ca463f46c6c561f61ec2c7ed8c11a0076750190ef1bc2f1370d04b832dd" alt="Nighthawks Darkness">
             </div>
+
             <div class="gallery-item">
-                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1374721899304587354/image.png" alt="Tactical Ops">
+                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1374721899304587354/image.png?ex=696a2b89&is=6968da09&hm=522c0eb92bfa532af5bcfa7cf6677d6a71461ba74c8b682496432c8f27795882" alt="Tactical Ops">
             </div>
+
             <div class="gallery-item">
-                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1376813740212617276/sccc.png" alt="Sapper Training">
+                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1376813740212617276/sccc.png?ex=6969deb7&is=69688d37&hm=7238de4f4d0e81be213b8dcf521aa15534313f75d6fc3282c659fa6a738a96a5" alt="Sapper Training">
             </div>
+
             <div class="gallery-item">
-                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1372472092716699668/OUR_BELOVED_BRADLEY.png" alt="Bradley Fighting Vehicle">
+                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1372472092716699668/OUR_BELOVED_BRADLEY.png?ex=6969e53e&is=696893be&hm=0bc64bb5dbc5907d23b1784a503b61364af3e37453a9a2b09adbb517741604ba" alt="Bradley Fighting Vehicle">
             </div>
+
             <div class="gallery-item">
-                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1319346867867222058/abrnasm.png" alt="M1 Abrams Tank">
+                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1319346867867222058/abrnasm.png?ex=6969c445&is=696872c5&hm=177060716886778abaad98f877c7205ad99b462e141fb55a5be41bfab1ce6425" alt="M1 Abrams Tank">
             </div>
+
             <div class="gallery-item">
-                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1310586469387210813/1CAV.png" alt="Division Formation">
+                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1310586469387210813/1CAV.png?ex=696a3243&is=6968e0c3&hm=e03c3dc9baae24f8a2d002fb16e50de0269390e18a0722cfcfd0cea24c5aefb9" alt="Division Formation">
             </div>
+
             <div class="gallery-item">
-                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1454005907770966077/image.png" alt="Armored Column">
+                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1454005907770966077/image.png?ex=6969e206&is=69689086&hm=429971ad0947ca5533563d0bcd7fba873f1c859e1d802b971e9b63c642e1c5ee" alt="Armored Column">
             </div>
+
             <div class="gallery-item">
-                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1424850228372307998/image.png" alt="Night Ops">
+                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1424850228372307998/image.png?ex=6969f16e&is=69689fee&hm=689aaaa83425e1b6b931053cb361e6eaf0c09220365684cc193df15955df16ec" alt="Night Ops">
             </div>
+
             <div class="gallery-item">
-                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1373937903750611066/image.png" alt="Desert Recon">
+                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1373937903750611066/image.png?ex=6969f462&is=6968a2e2&hm=c4f9cc7658a54948b917699172254869f451f0220fe769dd516bc309eacb391e" alt="Desert Recon">
             </div>
+
             <div class="gallery-item">
-                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1372405583923122216/kapre-Recovered.png" alt="Infantry Squad">
+                <img src="https://cdn.discordapp.com/attachments/994534236944093184/1372405583923122216/kapre-Recovered.png?ex=6969a74d&is=696855cd&hm=364716497b6a6885939c05939c3a08549eb6c3404c8f82e371e99e57b46052d7" alt="Infantry Squad">
             </div>
+
         </div>
 
         <!-- CINEMATICS -->
@@ -286,6 +305,7 @@
 
     </div>
 
+    <!-- FOOTER -->
     <footer>
         <p>2026 1st Cavalry Division. All Rights Reserved.</p>
         <p style="margin-top: 10px;">Designed for Zanance's USAR. Created by <span>BanditOperation</span></p>
