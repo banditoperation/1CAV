@@ -3,41 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1st Cavalry Division | America's First Team</title>
+    <title>1st Cavalry Division | Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- VARIABLES --- */
+        /* --- GLOBAL VARIABLES --- */
         :root {
             --bg-dark: #050505;
-            --bg-charcoal: #111111;
+            --bg-charcoal: #0F0F0F;
             --accent-yellow: #FFD600;
-            --accent-glow: rgba(255, 214, 0, 0.3);
+            --accent-dim: #b39600;
             --text-white: #ffffff;
-            --text-gray: #b0b0b0;
-            --glass-bg: rgba(255, 255, 255, 0.02);
-            --glass-border: rgba(255, 255, 255, 0.06);
+            --text-gray: #a1a1a1;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
             --font-main: 'Montserrat', sans-serif;
         }
 
         /* --- RESET & BASE --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
         body {
             background-color: var(--bg-dark);
-            /* Subtle texture gradient */
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(20, 20, 20, 1) 0%, rgba(5, 5, 5, 1) 90%);
+            background-image: radial-gradient(circle at top right, #1a1a1a 0%, var(--bg-dark) 60%);
             color: var(--text-white);
             font-family: var(--font-main);
             overflow-x: hidden;
@@ -46,12 +37,8 @@
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
-        button { font-family: var(--font-main); }
 
-        /* --- UTILITIES --- */
-        .highlight { color: var(--accent-yellow); }
-        
-        /* --- NAVIGATION (Glassmorphism) --- */
+        /* --- NAVIGATION --- */
         .navbar {
             position: fixed;
             top: 0;
@@ -60,52 +47,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(5, 5, 5, 0.85);
+            background: rgba(5, 5, 5, 0.9);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--glass-border);
             z-index: 1000;
         }
 
-        .logo {
-            font-weight: 800;
-            font-size: 1.4rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+        .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+        .logo span { color: var(--accent-yellow); }
 
-        .nav-links {
-            display: flex;
-            gap: 40px;
-        }
-
-        .nav-links a {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-gray);
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-white);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent-yellow);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: var(--text-gray); }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-yellow); }
 
         /* --- HERO SECTION --- */
         .hero {
@@ -120,17 +73,15 @@
             overflow: hidden;
         }
 
-        /* Background Logo Watermark */
-        .hero-bg-logo {
+        /* Background Logo */
+        .hero-bg {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 600px;
-            height: auto;
-            opacity: 0.08; /* Very subtle */
+            opacity: 0.15;
             z-index: -1;
-            filter: grayscale(100%);
             pointer-events: none;
         }
 
@@ -138,192 +89,129 @@
             font-size: 1rem;
             font-weight: 600;
             color: var(--accent-yellow);
-            letter-spacing: 8px;
+            letter-spacing: 6px;
+            margin-bottom: 15px;
             text-transform: uppercase;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-out;
         }
 
         .hero h1 {
-            font-size: 5.5rem;
+            font-size: 4.5rem;
             font-weight: 900;
             text-transform: uppercase;
-            line-height: 0.95;
-            letter-spacing: -3px;
+            line-height: 1;
+            letter-spacing: -2px;
             margin-bottom: 40px;
-            background: linear-gradient(180deg, #ffffff, #666666);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: slideUp 1s ease-out;
         }
 
         .cta-btn {
-            padding: 16px 40px;
-            background-color: transparent;
-            color: var(--accent-yellow);
-            border: 1px solid var(--accent-yellow);
-            font-weight: 700;
+            padding: 15px 40px;
+            background: var(--accent-yellow);
+            color: #000;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(255, 214, 0, 0.3);
             transition: all 0.3s ease;
-            font-size: 0.9rem;
         }
 
         .cta-btn:hover {
-            background-color: var(--accent-yellow);
-            color: #000;
-            box-shadow: 0 0 30px var(--accent-glow);
+            background: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
         }
 
-        /* --- WHO ARE WE SECTION --- */
-        .about-section {
-            padding: 120px 10%;
+        /* --- INFO SECTION --- */
+        .info-section {
+            padding: 100px 10%;
             text-align: center;
-            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-charcoal) 100%);
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .about-content h3 {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            font-weight: 800;
-            letter-spacing: -1px;
+            background: linear-gradient(180deg, var(--bg-dark), var(--bg-charcoal));
         }
         
-        .about-content h3 span {
+        .info-section h3 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
             color: var(--accent-yellow);
         }
-
-        .about-content p {
-            font-size: 1.2rem;
+        
+        .info-section p {
+            max-width: 800px;
+            margin: 0 auto;
             color: var(--text-gray);
-            font-weight: 300;
+            font-size: 1.1rem;
         }
 
-        /* --- BRIGADE GRID SECTION --- */
-        .grid-section {
-            padding: 100px 5%;
+        /* --- BRIGADE GRID --- */
+        .brigade-grid {
+            padding: 80px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             max-width: 1600px;
             margin: 0 auto;
         }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        /* CARD STYLES */
         .card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            padding: 50px 40px;
+            padding: 40px;
             border-radius: 4px;
-            transition: all 0.4s ease;
-            position: relative;
+            transition: 0.4s;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            backdrop-filter: blur(5px);
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-yellow), transparent);
-            opacity: 0;
-            transition: 0.4s;
+            backdrop-filter: blur(10px);
         }
 
         .card:hover {
+            border-color: var(--accent-yellow);
             transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.04);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-
-        .card:hover::before {
-            opacity: 1;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .card h4 {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
             text-transform: uppercase;
-            font-weight: 700;
             color: #fff;
         }
 
         .card p {
+            font-size: 0.9rem;
             color: var(--text-gray);
-            font-size: 0.95rem;
-            line-height: 1.8;
             margin-bottom: 30px;
-            font-weight: 300;
+            line-height: 1.7;
         }
 
-        .card-btn {
-            align-self: flex-start;
+        .card-link {
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--accent-yellow);
-            letter-spacing: 1px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
-
-        .card-btn:hover {
-            color: #fff;
-            gap: 15px; /* Slide effect */
-        }
+        
+        .card-link:hover { gap: 12px; color: #fff; }
 
         /* --- FOOTER --- */
         footer {
             text-align: center;
-            padding: 80px 20px;
+            padding: 60px 20px;
+            background: #000;
             border-top: 1px solid var(--glass-border);
             color: var(--text-gray);
             font-size: 0.8rem;
-            background: var(--bg-dark);
         }
+        
+        footer span { color: var(--accent-yellow); }
 
-        footer strong {
-            color: var(--accent-yellow);
-        }
-
-        /* --- ANIMATIONS & MEDIA QUERIES --- */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 1024px) {
-            .hero h1 { font-size: 4rem; }
-        }
-
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .navbar { flex-direction: column; gap: 20px; padding: 20px; }
-            .hero h1 { font-size: 3rem; letter-spacing: -1px; }
-            .hero h2 { letter-spacing: 4px; font-size: 0.8rem; }
-            .hero-bg-logo { width: 80%; }
-            .about-section { padding: 80px 20px; }
+            .hero h1 { font-size: 3rem; }
+            .hero-bg { width: 80%; }
         }
     </style>
 </head>
@@ -331,80 +219,72 @@
 
     <!-- NAV -->
     <nav class="navbar">
-        <div class="logo">1st <span class="highlight">Cavalry</span> Division</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#brigades">Units</a></li>
-            <li><a href="#">Enlist</a></li>
-        </ul>
+        <div class="logo">1st <span>Cavalry</span> Division</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About & Units</a>
+        </div>
     </nav>
 
     <!-- HERO -->
     <header class="hero">
-        <!-- Background Logo SVG URL from Wikimedia (Public Domain) -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/1st_Cavalry_Division-SSI.svg" alt="1st Cavalry Logo" class="hero-bg-logo">
-        
+        <img src="https://static.wixstatic.com/media/757a36_674575e15b62496993de4ea4d3ec77dc~mv2.png" alt="1st Cav Logo" class="hero-bg">
         <h2>America's First Team</h2>
-        <h1>1st Cavalry<br>Division</h1>
-        <button class="cta-btn" onclick="window.location.href='#brigades'">Explore Units</button>
+        <h1>1st Cavalry Division</h1>
+        <a href="about.html" class="cta-btn">Learn More</a>
     </header>
 
     <!-- WHO ARE WE -->
-    <section id="about" class="about-section">
-        <div class="about-content">
-            <h3>Who Are <span class="highlight">We?</span></h3>
-            <p>The 1st Cavalry Division is an offensive and supportive unit of the Army specializing in various fields, from infantry and armored vehicles to aviation.</p>
-        </div>
+    <section class="info-section">
+        <h3>Who Are We?</h3>
+        <p>The 1st Cavalry Division is an offensive and supportive unit of the Army specializing in various fields, from infantry and armored vehicles to aviation.</p>
     </section>
 
-    <!-- BRIGADES GRID -->
-    <section id="brigades" class="grid-section">
-        <div class="grid-container">
-            
-            <!-- Ironhorse Brigade -->
-            <div class="card">
-                <div>
-                    <h4>Ironhorse Brigade</h4>
-                    <p>Ironhorse Brigade is the default unit of the division. All new personnel who've attended a divisional tryout are placed here. Ironhorse is known for its infantry, anti-tanking, and artillery expertise, especially during tank combat.</p>
-                </div>
-                <a href="#" class="card-btn">View Details <span>&rarr;</span></a>
+    <!-- BRIGADE CARDS -->
+    <section class="brigade-grid">
+        
+        <!-- Ironhorse -->
+        <div class="card">
+            <div>
+                <h4>Ironhorse Brigade</h4>
+                <p>Ironhorse Brigade is the default unit of the division. All new personnel who've attended a divisional tryout are placed here. Ironhorse is known for its infantry, anti-tanking, and artillery expertise, especially during tank combat.</p>
             </div>
-
-            <!-- Greywolf Brigade -->
-            <div class="card">
-                <div>
-                    <h4>Greywolf Brigade</h4>
-                    <p>Greywolf Brigade is our tanking unit in the division. Personnel who wish to serve here can attend a specialized tryout or selection. They are recognized as the only armored unit in the United States Army. Their skills in tanks and other vehicles are unmatched, and they win almost every operation they are placed in.</p>
-                </div>
-                <a href="#" class="card-btn">View Details <span>&rarr;</span></a>
-            </div>
-
-            <!-- Spearhead Brigade -->
-            <div class="card">
-                <div>
-                    <h4>Spearhead Brigade</h4>
-                    <p>Spearhead Brigade, an elite unit within the 1st Cavalry Division, specializes in tactical and combined arms warfare. Utilizing the Humvee for transportation in dangerous operations and raids, our versatile fighting forces are also complemented by an elite infantry force executing elite tactics and formations. We qualify in many different things, such as elite marksmanship, fast-paced warfare, and unique fighting tactics.</p>
-                </div>
-                <a href="#" class="card-btn">View Details <span>&rarr;</span></a>
-            </div>
-
-            <!-- 194th Armored Brigade -->
-            <div class="card">
-                <div>
-                    <h4>194th Armored Brigade</h4>
-                    <p>194th Armored Brigade is known for training new division members in our entry program. Aside from that, they manage four courses, three of which are only found here in the 1st Cavalry Division. All Sappers and most drivers have interacted with the 194th Armored Brigade during their career.</p>
-                </div>
-                <a href="#" class="card-btn">View Details <span>&rarr;</span></a>
-            </div>
-
+            <a href="about.html#ironhorse" class="card-link">View Details &rarr;</a>
         </div>
+
+        <!-- Greywolf -->
+        <div class="card">
+            <div>
+                <h4>Greywolf Brigade</h4>
+                <p>Greywolf Brigade is our tanking unit in the division. Personnel who wish to serve here can attend a specialized tryout or selection. They are recognized as the only armored unit in the United States Army. Their skills in tanks and other vehicles are unmatched, and they win almost every operation they are placed in.</p>
+            </div>
+            <a href="about.html#greywolf" class="card-link">View Details &rarr;</a>
+        </div>
+
+        <!-- Spearhead -->
+        <div class="card">
+            <div>
+                <h4>Spearhead Brigade</h4>
+                <p>Spearhead Brigade, an elite unit within the 1st Cavalry Division, specializes in tactical and combined arms warfare. Utilizing the Humvee for transportation in dangerous operations and raids, our versatile fighting forces are also complemented by an elite infantry force executing elite tactics and formations. We qualify in many different things, such as elite marksmanship, fast-paced warfare, and unique fighting tactics.</p>
+            </div>
+            <a href="about.html#spearhead" class="card-link">View Details &rarr;</a>
+        </div>
+
+        <!-- 194th Armored -->
+        <div class="card">
+            <div>
+                <h4>194th Armored Brigade</h4>
+                <p>194th Armored Brigade is known for training new division members in our entry program. Aside from that, they manage four courses, three of which are only found here in the 1st Cavalry Division. All Sappers and most drivers have interacted with the 194th Armored Brigade during their career.</p>
+            </div>
+            <a href="about.html#194th" class="card-link">View Details &rarr;</a>
+        </div>
+
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026</p>
-        <p style="margin-top: 10px; font-size: 0.75rem;">Credits to <strong class="highlight">BanditOperation</strong></p>
+        <p>2026 1st Cavalry Division. All Rights Reserved.</p>
+        <p style="margin-top: 10px;">Designed for Zanance's USAR. Created by <span>BanditOperation</span></p>
     </footer>
 
 </body>
