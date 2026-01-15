@@ -166,7 +166,7 @@
             opacity: 1;
         }
 
-        /* --- VIDEO GRID (STOLEN STRUCTURE) --- */
+        /* --- VIDEO GRID --- */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -180,14 +180,17 @@
             border-radius: 4px;
             overflow: hidden;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* REQUIRED VIDEO CSS */
+        /* REQUIRED VIDEO CSS - FIXED ASPECT RATIO */
         .video-container { 
             position: relative; 
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0; 
             overflow: hidden; 
+            background: #000;
         }
         
         .video-container iframe { 
@@ -198,14 +201,38 @@
             height: 100%; 
         }
 
+        /* Video Caption & Fail Safe Button */
         .gallery-caption {
             padding: 15px;
-            font-size: 0.8rem;
-            color: var(--accent-yellow);
+            background: rgba(20, 20, 20, 0.8);
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .caption-text {
+            font-size: 0.85rem;
+            color: #fff;
             text-transform: uppercase;
             font-weight: 700;
-            background: rgba(255, 255, 255, 0.02);
-            border-top: 1px solid var(--glass-border);
+            letter-spacing: 1px;
+        }
+
+        /* Watch on YouTube Button (Fail Safe) */
+        .yt-btn {
+            font-size: 0.7rem;
+            color: var(--bg-dark);
+            background-color: var(--accent-yellow);
+            padding: 5px 12px;
+            border-radius: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .yt-btn:hover {
+            background-color: #fff;
+            color: #000;
         }
 
         .video-item:hover {
@@ -231,7 +258,6 @@
             .propaganda-header h1 { font-size: 2.5rem; }
             .gallery-grid, .video-grid { grid-template-columns: 1fr; }
             .navbar { flex-direction: column; gap: 15px; }
-            .video-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -313,7 +339,10 @@
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/kR2tORlGUEo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="gallery-caption">Cinematic 01</div>
+                <div class="gallery-caption">
+                    <span class="caption-text">Cinematic 01</span>
+                    <a href="https://youtu.be/kR2tORlGUEo" target="_blank" class="yt-btn">Watch on YouTube</a>
+                </div>
             </div>
 
             <!-- Video 2 -->
@@ -321,7 +350,10 @@
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/N4PzPzzgXX0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="gallery-caption">Cinematic 02</div>
+                <div class="gallery-caption">
+                    <span class="caption-text">Cinematic 02</span>
+                    <a href="https://youtu.be/N4PzPzzgXX0" target="_blank" class="yt-btn">Watch on YouTube</a>
+                </div>
             </div>
 
             <!-- Video 3 -->
@@ -329,7 +361,10 @@
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/p4eX1_tuvOQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="gallery-caption">Cinematic 03</div>
+                <div class="gallery-caption">
+                    <span class="caption-text">Cinematic 03</span>
+                    <a href="https://youtu.be/p4eX1_tuvOQ" target="_blank" class="yt-btn">Watch on YouTube</a>
+                </div>
             </div>
 
             <!-- Video 4 -->
@@ -337,7 +372,10 @@
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/O1kEEO4S-1g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="gallery-caption">Cinematic 04</div>
+                <div class="gallery-caption">
+                    <span class="caption-text">Cinematic 04</span>
+                    <a href="https://youtu.be/O1kEEO4S-1g" target="_blank" class="yt-btn">Watch on YouTube</a>
+                </div>
             </div>
 
         </div>
