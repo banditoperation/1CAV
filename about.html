@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1st Cavalry Division | Roster & Details</title>
-    <!-- FAVICON -->
     <link rel="icon" href="https://static.wixstatic.com/media/757a36_674575e15b62496993de4ea4d3ec77dc~mv2.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- GLOBAL VARIABLES --- */
         :root {
             --bg-dark: #050505;
             --bg-charcoal: #0F0F0F;
@@ -34,6 +32,12 @@
             font-family: var(--font-main);
             overflow-x: hidden;
             line-height: 1.6;
+            animation: fadeIn 0.8s ease-out; /* Site-wide Fade In */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -60,7 +64,7 @@
         }
 
         .logo-img {
-            height: 45px;
+            height: 40px;
             width: auto;
             filter: drop-shadow(0 0 5px rgba(255,214,0,0.2));
         }
@@ -143,7 +147,7 @@
         /* --- UNIT DETAILS --- */
         .unit-section {
             margin-bottom: 100px;
-            padding-top: 40px; /* Offset for anchors */
+            padding-top: 40px; 
         }
 
         .unit-header {
@@ -164,13 +168,12 @@
             display: block;
         }
 
-        /* Bulleted Subtext Style */
         .brigade-desc {
             color: var(--text-gray);
             font-size: 1.05rem;
             line-height: 1.7;
             margin-bottom: 40px;
-            padding-left: 23px; /* Aligns with header text */
+            padding-left: 23px; 
             border-left: 1px solid rgba(255, 214, 0, 0.2);
         }
 
@@ -184,23 +187,38 @@
         }
 
         .company-block h4 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #fff;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-weight: 800;
             display: flex;
             align-items: center;
-            text-transform: uppercase;
         }
-        
-        .company-block h4 span {
+
+        .company-block h4::before {
+            content: '\2022';
             color: var(--accent-yellow);
             margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        /* NEW MOTTO STYLING */
+        .motto {
+            font-size: 1rem;
+            color: var(--accent-yellow);
+            font-weight: 500;
+            font-style: italic;
+            margin-bottom: 15px;
+            margin-left: 25px; /* Indent to match text */
+            opacity: 0.9;
         }
 
         .company-block p {
             color: var(--text-gray);
             font-size: 0.95rem;
             line-height: 1.8;
+            margin-left: 25px;
         }
 
         /* --- LINKS SECTION --- */
@@ -235,7 +253,6 @@
             color: #000;
         }
 
-        /* --- FOOTER --- */
         footer {
             text-align: center;
             padding: 60px 20px;
@@ -248,7 +265,6 @@
         
         footer span { color: var(--accent-yellow); }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .navbar { flex-direction: column; gap: 15px; }
             .logo-img { height: 35px; }
@@ -267,12 +283,13 @@
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html" class="active">About & Units</a>
+            <a href="propaganda.html">Propaganda</a>
         </div>
     </nav>
 
     <div class="container">
         
-        <!-- INTRO SECTION -->
+        <!-- INTRO -->
         <div class="intro-block">
             <h1>1st Cavalry Division</h1>
             <p>The 1st Cavalry Division is an offensive and supportive unit of the Army specializing in various fields, from infantry and armored vehicles to aviation.</p>
@@ -305,12 +322,14 @@
             </div>
             
             <div class="company-block">
-                <h4><span>&bull;</span> Saber Company (Motto: Acts, Not Words.)</h4>
+                <h4>Saber Company</h4>
+                <h5 class="motto">"Acts, Not Words."</h5>
                 <p>The Saber Company serves as the Anti-Tank and Combat Engineering Company of USAR. Saber personnel are trained in both destruction and construction, from RPGs to mines. In every mission where tanks and troops collide, Saber tips the balance.</p>
             </div>
 
             <div class="company-block">
-                <h4><span>&bull;</span> Lancer Company (Motto: No Head Left Intact.)</h4>
+                <h4>Lancer Company</h4>
+                <h5 class="motto">"No Head Left Intact."</h5>
                 <p>Lancer Company stays out front scouting routes and zones to track enemy movement and report back what they see. They spend a lot of time driving ahead of the main force to act as a security screen, using stealth and solid land nav to spot ambushes before the rest of the unit gets there. When things get loud, they use small-unit tactics and fire-and-maneuver to disrupt the enemy while keeping the higher-ups and the armor units in the loop. It’s basically a mix of tactical driving, staying hidden, and making sure the infantry knows exactly what they’re walking into.</p>
             </div>
         </div>
@@ -323,12 +342,14 @@
             </div>
             
             <div class="company-block">
-                <h4><span>&bull;</span> Warhorse Company (Motto: In Tanks We Trust!)</h4>
+                <h4>Warhorse Company</h4>
+                <h5 class="motto">"In Tanks We Trust!"</h5>
                 <p>The main tanking company within the Greywolf Brigade. It is composed of qualified drivers gunners and mechanics. Their specializations are mainly tank scrims but also armored patrols. The main tanks used by Warhorse Company is the powerful M1 Abrams. Staff is tasked with making sure personnel is knowledgeable when it comes to the tank’s functioning.</p>
             </div>
 
             <div class="company-block">
-                <h4><span>&bull;</span> Nighthawks Company (Motto: Night Hides Not!)</h4>
+                <h4>Nighthawks Company</h4>
+                <h5 class="motto">"Night Hides Not!"</h5>
                 <p>Nighthawks Company is the light armored unit. They support Warhorse with M2 Bradleys and other Infantry/Armored Fighting Vehicles. Adding to this, their purpose covers anti-air ballistics ready to be deployed at any time. Nighthawks Company Staff ensures that their personnel can maintain speed and mobility during tank scrims and raids.</p>
             </div>
         </div>
@@ -341,12 +362,14 @@
             </div>
             
             <div class="company-block">
-                <h4><span>&bull;</span> Garryowen Company</h4>
+                <h4>Garryowen Company</h4>
+                <h5 class="motto">"Seventh First!"</h5>
                 <p>Garryowen Company is our main unit for raids and scrimmages, housing our most elite operators. They’re known for being fast and precise, usually using Humvees to get onto the battlefield and into the fight quickly. The soldiers here go through a ton of training, including intense physical conditioning and close-quarters combat, so they’re ready for basically any scenario. Named after the famous Irish battle cry, the company is all about being fearless and resilient. Honestly, they’re just a versatile, tough group of operators who know how to get the win no matter how messy the mission gets.</p>
             </div>
 
             <div class="company-block">
-                <h4><span>&bull;</span> Headhunter Company (Motto: We Can, We Will!)</h4>
+                <h4>Headhunter Company</h4>
+                <h5 class="motto">"We Can, We Will!"</h5>
                 <p>Headhunters Company stands renowned for its swift and precise deployment capabilities. Headhunters leverages Humvees to achieve rapid insertion onto the battlefield. Headhunters embodies a spirit of fearlessness, resilience, and a commitment to achieving victory in every mission. Headhunters Company maintains a high standard of training for its soldiers. This includes rigorous physical conditioning, advanced infantry tactics, and close-quarters combat training. The soldiers of Headhunters are versatile and adaptable, capable of excelling in a variety of combat scenarios, making them a formidable force in modern warfare.</p>
             </div>
         </div>
@@ -359,7 +382,8 @@
             </div>
             
             <div class="company-block">
-                <h4><span>&bull;</span> Wrangler Company</h4>
+                <h4>Wrangler Company</h4>
+                <h5 class="motto">"Thunderbolts of Battle!"</h5>
                 <p>Wrangler Company is tasked with hosting the infamous Driver and Mechanic Courses and the highly sought-after Sapper School. Outside of courses, Wrangler Instructors also assist with the Armor School curriculum, the division's entry program. If you're interested in hosting just about everything, grading exams, and hosting supervisions, join us! It is also a pivotal Training and Recruitment unit within the 1st Cavalry Division, 194th Armored Brigade. They are responsible for hosting phases and tryouts for the armored school and recruiting USAR personnel into the 1st Cavalry Division. Our staff in the 194th Armored Brigade are fully trained to operate Armored Vehicles independently. Specializing in training and tryouts, we ensure that every member is equipped with the skills and knowledge necessary for a standard of excellence.</p>
             </div>
         </div>
@@ -377,7 +401,6 @@
 
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <p>2026 1st Cavalry Division. All Rights Reserved.</p>
         <p style="margin-top: 10px;">Designed for Zanance's USAR. Created by <span>BanditOperation</span></p>
